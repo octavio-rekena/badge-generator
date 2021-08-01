@@ -1,0 +1,7 @@
+
+= simple_form_for @badge do |f|
+  = f.input :uuid, wrapper_html: { class: 'col-md-6' }
+  = f.input :recipient_name, wrapper_html: { class: 'col-md-6' }
+  = f.input :issue_date, wrapper_html: { class: 'col-md-6' }
+  .mt-3
+  = f.button :submit, class: 'btn btn-primary'
