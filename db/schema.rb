@@ -18,9 +18,8 @@ ActiveRecord::Schema.define(version: 2021_08_01_103427) do
   create_table "badges", force: :cascade do |t|
     t.string "uuid"
     t.string "recipient_name"
-    t.string "hash"
+    t.string "badge_hash"
     t.string "proof_id"
-    t.datetime "issue_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["uuid"], name: "index_badges_on_uuid"
