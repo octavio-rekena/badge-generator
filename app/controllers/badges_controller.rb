@@ -1,5 +1,10 @@
 class BadgesController < ApplicationController
   before_action :load_badge, only: :show
+
+  def index
+    @badges = Badge.all
+  end
+
   def show
   end
 
@@ -11,7 +16,8 @@ class BadgesController < ApplicationController
     @badge = Badge.new(badge_params)
 
     if @badge.save
-      redirect_path badge_path(@badge)
+      BadgesService.new(@badge).submit_to_chainpoint
+      redirect_to badge_path(@badge)
     else
       render :new
     end

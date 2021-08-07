@@ -1,0 +1,16 @@
+- if flash[:alert]
+  - flash[:notice] = nil
+  .row.flex-spaces
+    %input#alert-1.alert-state{:type => "checkbox"}/
+    .alert.alert-primary.dismissible
+      = raw(flash[:alert])
+      %label.btn-close{:for => "alert"} X
+- elsif flash[:notice]
+  .row.flex-spaces
+    %input#alert.alert-state{:type => "checkbox"}/
+    .alert.alert-success.dismissible
+      = raw(flash[:notice])
+      %label.btn-close{:for => "alert"} X
+
+
+
