@@ -11,3 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import 'papercss/dist/paper'
+import "papercss/dist/paper";
+import "@fortawesome/fontawesome-free/css/all"

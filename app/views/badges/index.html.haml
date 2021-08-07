@@ -1,0 +1,21 @@
+.text-center
+  %h1 Badge Generator
+  %p This tool allows you to store your badge data and attach it with the Chainpoint network. You will recieve a proof ID that can verify your data existed in the future.
+  = link_to 'Add Badge', new_badge_path, class: 'paper-btn'
+
+%table.margin-top-large
+  %thead
+    %tr
+      %th #
+      %th Recipient Name
+      %th UUID
+      %th.text-center Sent to Chainpoint?
+      %th
+  %tbody
+    - @badges.each do |badge|
+      %tr
+        %td= badge.id
+        %td= badge.recipient_name
+        %td= badge.uuid
+        %td.text-center= cross_or_tick(badge.proof_id.present?)
+        %td= link_to 'Details', badge_path(badge)

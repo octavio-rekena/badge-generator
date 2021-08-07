@@ -1,0 +1,26 @@
+= link_to 'Go back', root_path, class: 'paper-btn', style: 'float: right;'
+.text-center
+  %h1= "Badge ##{@badge.id}"
+
+%table
+  %tbody
+    %tr
+      %td.text-secondary Badge UUID:
+      %td= @badge.uuid
+    %tr
+      %td.text-secondary Recipient Name:
+      %td= @badge.recipient_name
+    %tr
+      %td.text-secondary Hash:
+      %td= @badge.badge_hash
+    - if @badge.proof_id.present?
+      %tr
+        %td.text-secondary Proof ID
+        %td= @badge.proof_id
+
+- unless @badge.proof_id.present?
+  .row.flex-spaces.margin-top-large
+    .alert.alert-primary.text-center
+      %p Oops! Looks like the badge was not correctly submitted. Click in the following button to send it again to the Chainpoint Network
+    %p= link_to 'Send to Chainpoint', badge_generator_path(@badge), class: 'paper-btn', data: { method: :patch }, remote: true
+    

@@ -1,0 +1,10 @@
+= link_to 'Go back', root_path, class: 'paper-btn', style: 'float: right;'
+.text-center
+  %h1 Submit badge
+= simple_form_for @badge do |f|
+  .row.flex-center
+    = f.input :uuid, wrapper_html: { class: 'col-8 form-group' }, input_html: { class: 'input-block' }
+    = f.input :recipient_name, wrapper_html: { class: 'col-8 form-group' }, input_html: { class: 'input-block' }
+  .text-center
+    = f.button :submit, class: 'paper-btn'
+
