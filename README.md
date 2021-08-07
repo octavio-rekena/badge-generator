@@ -1,24 +1,36 @@
-# README
+# BADGE GENERATOR
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The badge generator is a tool that allows you to submit your credential/badge data to the Chainpoint network. 
 
-Things you may want to cover:
+With the badge generator you will be able to:
 
-* Ruby version
+* Create Badges that will store your data.
 
-* System dependencies
+* Create a hash with your badge data.
 
-* Configuration
+* Submit the hash from your badge to a Chainpoint Network.
 
-* Database creation
+* Get a proof ID to verify your data was submitted correctly.
 
-* Database initialization
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+Download the project to your local machine.
 
-* Deployment instructions
+Install all the dependencies.
 
-* ...
+```sh
+bundle install
+```
+
+Create the Database and run the migrations.
+
+```sh
+rails db:create db:migrate
+```
+
+Init the rails server
+
+```sh
+rails server
+```
