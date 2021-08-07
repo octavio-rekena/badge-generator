@@ -6,12 +6,12 @@ class BadgesServiceTest < ActiveSupport::TestCase
 
     WebMock.allow_net_connect!
 
-    stub_request(:post, endpoint).
-      to_return(
+    stub_request(:post, endpoint)
+      .to_return(
         body: correct_response_body(badge),
         headers: { 'Content-Type' => 'application/json' }
       )
-    
+
     value = BadgesService.new(badge).submit_to_chainpoint
 
     assert value
@@ -24,13 +24,13 @@ class BadgesServiceTest < ActiveSupport::TestCase
 
     WebMock.allow_net_connect!
 
-    stub_request(:post, endpoint).
-      to_return(
+    stub_request(:post, endpoint)
+      .to_return(
         body: '',
         status: 500,
         headers: { 'Content-Type' => 'application/json' }
       )
-    
+
     value = BadgesService.new(badge).submit_to_chainpoint
 
     assert_not value
@@ -42,7 +42,7 @@ class BadgesServiceTest < ActiveSupport::TestCase
   def endpoint
     "#{base_domain}/hashes"
   end
-  
+
   def base_domain
     'http://3.136.178.15'
   end

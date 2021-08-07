@@ -5,7 +5,7 @@ class BadgesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    bagde = create(:badge)
+    create(:badge)
     get badges_path
     assert_response :success
   end

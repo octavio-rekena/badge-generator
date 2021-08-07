@@ -1,0 +1,84 @@
+# Common configuration.
+
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'Rakefile'
+    - 'node_modules/**/*'
+    - 'config/environments/production.rb'
+    - 'config/initializers/content_security_policy.rb'
+
+#################### Style ###############################
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+  SupportedStyles:
+    - compact
+    - expanded
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+  EnforcedStyle: nested
+  SupportedStyles:
+    - nested
+    - compact
+
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_inside_condition
+  SupportedStyles:
+    - assign_to_condition
+    - assign_inside_condition
+  SingleLineConditionsOnly: true
+  IncludeTernaryExpressions: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '()'
+    '%I': '()'
+    '%r': '{}'
+    '%w': '()'
+    '%W': '()'
+
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+  SupportedStyles:
+    - with_first_argument
+    - with_fixed_indentation
+  # By default, the indentation width from Layout/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 65
+
+Metrics/AbcSize:
+  Max: 90
+
+Layout/LineLength:
+  Max: 100
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # containing a URI to be longer than Max.
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  # The IgnoreCopDirectives option causes the LineLength rule to ignore cop
+  # directives like '# rubocop: enable ...' when calculating a line's length.
+  IgnoreCopDirectives: false
+  # The IgnoredPatterns option is a list of !ruby/regexp and/or string
+  # elements. Strings will be converted to Regexp objects. A line that matches
+  # any regular expression listed in this option will be ignored by LineLength.
+  IgnoredPatterns: []

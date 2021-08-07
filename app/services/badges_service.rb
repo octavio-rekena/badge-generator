@@ -7,7 +7,7 @@ class BadgesService
 
   def submit_to_chainpoint
     return false unless badge.present? && badge.proof_id.nil?
-    
+
     generate_hash unless badge.badge_hash.present?
 
     response = HTTParty.post endpoint,
@@ -39,8 +39,8 @@ class BadgesService
   def endpoint
     "#{base_domain}/hashes"
   end
-  
+
   def base_domain
     'http://3.136.178.15'
   end
-end  
+end
